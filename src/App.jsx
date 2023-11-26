@@ -1,27 +1,21 @@
-import React, {useState, useRef, useEffect} from "react"
+import React, {useState} from 'react'
+import Register from './components/register'
+import LogIn from './components/logIn'
 
 const App = () => {
-  const[count, setCount] = useState(0)
-  const render = useRef(0)
+  const[activePage, setActivePage] = useState('register');
 
-  useEffect(() => {
-     render.current = render.current + 1
-  })
+  const change_page = (page_change) => {
+        setActivePage(page_change)
+  }
 
-  
   return (
-   <div className=" ml-56 py-40 space-y-2" >
+    <main >
+       <div className='' >
+           {(activePage == "register" ? <Register onFormSwitch={change_page} /> : <LogIn onFormSwitch={change_page} />)}
+       </div>
 
-      <div className="space-x-2 text-4xl">
-         <button onClick={() => setCount(count+1)}>+</button>
-         <span>{count}</span>
-         <button onClick={() => setCount(count-1)}>-</button>
-      </div>
-
-          <div className="space-x-2 text-4xl">
-            <span> rendered {render.current} times</span>
-          </div>
-  </div>
+    </main>
   )
 }
 

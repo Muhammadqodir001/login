@@ -3,3 +3,16 @@
 @tailwind utilities;
 
 
+.container{
+         background: rgba(0, 0, 0, 0.5); 
+}
+
+.input{
+padding-left: 40px;
+color: white;
+
+}
+
+.input::placeholder {
+color: rgb(201, 181, 181);
+}
